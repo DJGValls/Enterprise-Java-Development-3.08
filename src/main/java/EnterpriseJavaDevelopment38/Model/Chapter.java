@@ -1,9 +1,6 @@
 package EnterpriseJavaDevelopment38.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Chapter")
@@ -17,6 +14,17 @@ public class Chapter {
     private String district;
 
     private String president;
+    @OneToOne
+    @JoinColumn(name="member_id")
+    private Member member;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public void setName(String name) {
         this.name = name;

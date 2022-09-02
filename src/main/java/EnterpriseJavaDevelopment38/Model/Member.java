@@ -1,9 +1,6 @@
 package EnterpriseJavaDevelopment38.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -15,10 +12,21 @@ public class Member {
     private int id;
 
     private String name;
-
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     private Date renewalDate;
+
+    @OneToOne(mappedBy = "member")
+    private Chapter chapter;
+
+    public Chapter getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(Chapter chapter) {
+        this.chapter = chapter;
+    }
 
     public int getId() {
         return id;
