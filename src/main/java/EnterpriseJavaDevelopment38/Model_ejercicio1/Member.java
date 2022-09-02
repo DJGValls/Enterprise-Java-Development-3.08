@@ -1,4 +1,4 @@
-package EnterpriseJavaDevelopment38.Model;
+package EnterpriseJavaDevelopment38.Model_ejercicio1;
 
 import javax.persistence.*;
 import java.util.Date;
