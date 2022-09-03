@@ -16,7 +16,7 @@ public class Speakers {
 
     private Integer presentationDuration;
 
-    @OneToOne(mappedBy = "speakers")
+    @ManyToOne()
     private Conferences conferences;
 
     public void setName(String name) {

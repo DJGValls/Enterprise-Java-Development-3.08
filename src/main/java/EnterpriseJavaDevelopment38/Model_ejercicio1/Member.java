@@ -17,7 +17,7 @@ public class Member {
 
     private Date renewalDate;
 
-    @OneToOne(mappedBy = "member")
+    @ManyToOne()
     private Chapter chapter;
 
     public Chapter getChapter() {

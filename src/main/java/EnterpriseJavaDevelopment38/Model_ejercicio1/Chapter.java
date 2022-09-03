@@ -1,6 +1,7 @@
 package EnterpriseJavaDevelopment38.Model_ejercicio1;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Chapter")
@@ -14,16 +15,19 @@ public class Chapter {
     private String district;
 
     private String president;
-    @OneToOne
+    @OneToMany
     @JoinColumn(name="member_id")
-    private Member member;
+    private List<Member> memberList;
 
-    public Member getMember() {
-        return member;
+    @ManyToOne
+    private Association association;
+
+    public List<Member> getMemberList() {
+        return memberList;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setMemberList(List<Member> memberList) {
+        this.memberList = memberList;
     }
 
     public void setName(String name) {

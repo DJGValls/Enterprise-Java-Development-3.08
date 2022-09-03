@@ -16,15 +16,8 @@ public class Guest {
     @Enumerated(EnumType.STRING)
     private GuestStatus status;
 
-    @OneToOne(mappedBy = "guest")
-    private Conferences conferences;
-
-    @OneToOne(mappedBy = "guest")
-    private Expositions expositions;
-
-    public int getId() {
-        return id;
-    }
+    @ManyToOne
+    private Event event;
 
     public void setName(String name) {
         this.name = name;
@@ -34,12 +27,12 @@ public class Guest {
         this.status = status;
     }
 
-    public void setConferences(Conferences conferences) {
-        this.conferences = conferences;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public void setExpositions(Expositions expositions) {
-        this.expositions = expositions;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -50,11 +43,7 @@ public class Guest {
         return status;
     }
 
-    public Conferences getConferences() {
-        return conferences;
-    }
-
-    public Expositions getExpositions() {
-        return expositions;
+    public Event getEvent() {
+        return event;
     }
 }

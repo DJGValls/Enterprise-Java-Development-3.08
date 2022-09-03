@@ -2,80 +2,22 @@ package EnterpriseJavaDevelopment38.Model_ejercicio2;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 @Table(name = "conferences")
-public class Conferences {
+public class Conferences extends Event {
 
-    @Id
-    @GeneratedValue
-    private int id;
-
-    private Date date;
-
-    private Integer duration;
-
-    private String location;
-
-    private String title;
-
-    @OneToOne
-    @JoinColumn(name = "guest_list")
-    private Guest guest;
-
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "speakers_list")
-    private Speakers speakers;
+    private List<Speakers> speakersList;
 
-    public int getId() {
-        return id;
+    public List<Speakers> getSpeakersList() {
+        return speakersList;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public EnterpriseJavaDevelopment38.Model_ejercicio2.Speakers getSpeakers() {
-        return speakers;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setGuest(Guest guest) {
-        this.guest = guest;
-    }
-
-    public void setSpeakers(EnterpriseJavaDevelopment38.Model_ejercicio2.Speakers speakers) {
-        speakers = speakers;
+    public void setSpeakersList(List<Speakers> speakersList) {
+        this.speakersList = speakersList;
     }
 }
